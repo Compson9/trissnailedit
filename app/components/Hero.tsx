@@ -6,8 +6,7 @@ import Image from "next/image";
 
 import { useEffect, useState } from "react";
 import Typewriter from "./Typewriter";
-
-
+import Link from "next/link";
 
 export default function HeroSection() {
   const phrases = [
@@ -58,7 +57,7 @@ export default function HeroSection() {
       {/* Desktop Image (hidden on small screens) */}
       <div className="hidden md:block absolute inset-0">
         <Image
-           src="/nailHero.jpg"
+          src="/nailHero.jpg"
           alt="Beautiful hairstyle"
           fill
           className="object-cover object-center"
@@ -70,13 +69,19 @@ export default function HeroSection() {
         <h1 className="font-serif text-4xl font-medium md:text-5xl lg:text-6xl mb-6 leading-tight max-w-3xl">
           <Typewriter texts={phrases} />
         </h1>
-        <p className="text-lg md:text-xl max-w-xl mb-10 font-normal text-gray-100 opacity-90">
-         Expert nail care, lash extensions, and beauty services to elevate your style in our welcoming salon.
+        <p className="text-lg md:text-xl max-w-xl mb-10 font-normal text-gray-100 opacity-70">
+          Expert nail care, lash extensions, and beauty services to elevate your
+          style in our welcoming salon.
         </p>
-        <Button className="bg-white cursor-pointer text-black hover:bg-white/90 rounded-full px-8 py-6 text-lg group">
-          Book Your Appointment
-          <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-        </Button>
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.picktime.com/009fd765-a783-4506-a80c-114fd53e8ebd">
+          <Button className="bg-white cursor-pointer text-black hover:bg-white/90 rounded-full px-8 py-6 text-lg group">
+            Book Your Appointment
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </Link>
       </div>
     </section>
   );

@@ -171,8 +171,8 @@ export default function Header() {
                     className={cn(
                       "text-xl font-medium transition-colors w-full text-left py-2 block",
                       pathname === item.href
-                        ? "text-[#e8d5c4]"
-                        : "text-gray-900 hover:text-[#e8d5c4]"
+                        ? "text-black"
+                        : "text-gray-900 hover:text-black"
                     )}>
                     {item.name}
                   </Link>
@@ -188,9 +188,9 @@ export default function Header() {
                 onClick={() => setIsOpen(false)}>
                 <Button
                   className={cn(
-                    "w-full text-black bg-[#e8d5c4] font-medium rounded-3xl",
+                    "w-full text-white bg-black font-medium rounded-3xl",
                     "px-6 py-3 text-lg transition-all duration-200",
-                    "hover:bg-[#d9c6b5] hover:shadow-md",
+                    "hover:bg-gray-800 hover:shadow-md",
                     isOpen ? "opacity-100" : "opacity-0",
                     "transition-opacity duration-300 delay-500"
                   )}>
