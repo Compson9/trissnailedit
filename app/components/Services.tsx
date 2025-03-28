@@ -118,7 +118,7 @@ export default function Services() {
   return (
     <main className="bg-white overflow-hidden">
       {/* Services Section with Modern Cards */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
+      <section id="services" className="py-24 px-4 max-w-7xl mx-auto">
         <div className="mb-16 text-center">
           <motion.span 
             initial={{ opacity: 0 }}
@@ -213,6 +213,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
+              id="about"
               className="mt-6 text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl"
             >
               Our Work

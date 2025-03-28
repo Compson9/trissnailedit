@@ -1,9 +1,5 @@
-"use client";
-
+"use client"
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -11,13 +7,28 @@ import { Button } from "@/components/ui/button";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("");
 
-  // Handle scroll event for navbar background
+  // Handle scroll event for navbar background and section highlighting
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Optional: detect which section is currently in view
+      // This would require setting up the sections with proper IDs
+      const sections = ["services", "about", "contact"];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -39,12 +50,21 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  // Navigation items with proper routes
+  // Smooth scroll to section
+  const scrollToSection = (sectionId: string) => {
+    setIsOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Navigation items with section IDs instead of routes
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "#" },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -55,16 +75,22 @@ export default function Header() {
       )}>
       <div className="max-w-screen-xl mx-auto h-full px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="z-20">
-          <Image
+        <a 
+          href="#" 
+          className="z-20"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          <img
             width={200}
             height={140}
             src="/mainLogo.png"
             className="h-auto"
             alt="Salon Logo"
-            priority
           />
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
@@ -73,19 +99,23 @@ export default function Header() {
               .filter((item) => item.name !== "Home")
               .map((item) => (
                 <li key={item.name}>
-                  <Link
+                  <a
                     href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href.substring(1));
+                    }}
                     className={cn(
                       "relative py-1 px-1 transition-colors duration-200",
                       "after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0",
                       "after:bg-[#DE3163] after:transition-all after:duration-300",
                       "hover:text-[#DE3163] hover:after:w-full",
-                      pathname === item.href
+                      activeSection === item.href.substring(1)
                         ? "text-[#DE3163] after:w-full"
                         : "text-gray-900"
                     )}>
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
           </ul>
@@ -93,7 +123,7 @@ export default function Header() {
 
         {/* Book Now Button & Mobile Menu Toggle */}
         <div className="flex items-center z-20">
-          <Link
+          <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.picktime.com/009fd765-a783-4506-a80c-114fd53e8ebd">
@@ -105,7 +135,7 @@ export default function Header() {
               )}>
               Book Now
             </Button>
-          </Link>
+          </a>
 
           <button
             type="button"
@@ -139,7 +169,7 @@ export default function Header() {
             isOpen ? "translate-x-0" : "translate-x-full"
           )}>
           <div className="flex items-center justify-between p-4 border-b">
-            <Image
+            <img
               width={120}
               height={32}
               src="/mainLogo.png"
@@ -154,34 +184,41 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col flex-1 overflow-y-auto py-8">
-            <ul className="flex flex-col  space-y-6 px-6">
+            <ul className="flex flex-col space-y-6 px-6">
               {navItems.map((item, index) => (
                 <li
                   key={item.name}
                   className={cn(
-                    "transition-all  duration-300",
+                    "transition-all duration-300",
                     isOpen
                       ? "translate-x-0 opacity-100"
                       : "translate-x-8 opacity-0",
                     `delay-${index * 100}`
                   )}>
-                  <Link
+                  <a
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.name === "Home") {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      } else {
+                        scrollToSection(item.href.substring(1));
+                      }
+                    }}
                     className={cn(
                       "text-xl font-medium transition-colors w-full text-left py-2 block",
-                      pathname === item.href
+                      activeSection === item.href.substring(1)
                         ? "text-black"
                         : "text-gray-900 hover:text-black"
                     )}>
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
 
             <div className="mt-auto px-6 pb-8">
-              <Link
+              <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.picktime.com/009fd765-a783-4506-a80c-114fd53e8ebd"
@@ -196,7 +233,7 @@ export default function Header() {
                   )}>
                   Book Now
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </nav>
