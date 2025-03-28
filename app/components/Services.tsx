@@ -53,40 +53,41 @@ export default function Services() {
   // Video gallery with improved bento grid layout
   const videos = [
     {
+        id: "3",
+        thumbnail: "/lash.jpg",
+        title: "Lash Extension Application",
+        videoUrl: "/lashVid.mp4"
+      },
+    {
       id: "1",
-      thumbnail: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop",
-      title: "Nail Art Design",
-      videoUrl: "https://example.com/videos/nail-art-design.mp4"
+      thumbnail: "/thumb1.jpg",
+      title: "Nails",
+      videoUrl: "/vid1.mp4"
     },
     {
       id: "2",
-      thumbnail: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop",
-      title: "Pedicure Process",
-      videoUrl: "https://example.com/videos/pedicure-process.mp4"
+      thumbnail: "/mint.jpg",
+      title: "Eye lash fixing",
+      videoUrl: "/mintVid.mp4"
     },
-    {
-      id: "3",
-      thumbnail: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=800&auto=format&fit=crop",
-      title: "Lash Extension Application",
-      videoUrl: "https://example.com/videos/lash-extension.mp4"
-    },
+    
     {
       id: "4",
-      thumbnail: "https://images.unsplash.com/photo-1594076482669-876a7ee8e1c0?q=80&w=800&auto=format&fit=crop",
-      title: "Ombré Brows Process",
-      videoUrl: "https://example.com/videos/ombre-brows.mp4"
+      thumbnail: "lash2.jpg",
+      title: "Eye lash hybrid process",
+      videoUrl: "/lash2Vid.mp4"
     },
     {
       id: "5",
-      thumbnail: "https://images.unsplash.com/photo-1561655549-66de664d13da?q=80&w=800&auto=format&fit=crop",
-      title: "Deluxe Manicure",
-      videoUrl: "https://example.com/videos/deluxe-manicure.mp4"
+      thumbnail: "/nails.jpg",
+      title: "Nails fixing",
+      videoUrl: "/nails.mp4"
     },
     {
       id: "6",
-      thumbnail: "https://images.unsplash.com/photo-1607779097040-28d8a56e56c9?q=80&w=800&auto=format&fit=crop",
+      thumbnail: "/hand.jpg",
       title: "Nail Art Highlights",
-      videoUrl: "https://example.com/videos/nail-art-highlights.mp4"
+      videoUrl: "/hand.mp4"
     }
   ];
 
@@ -286,8 +287,8 @@ export default function Services() {
             <Button 
               variant="outline" 
               size="lg"
-              className="bg-white hover:bg-gray-50 border-gray-300 text-gray-800 hover:border-gray-400 transition-all duration-300"
-              onClick={() => window.open('https://instagram.com', '_blank')}
+              className="bg-white hover:bg-gray-50 cursor-pointer border-gray-300 text-gray-800 hover:border-gray-400 transition-all duration-300"
+              onClick={() => window.open('https://www.instagram.com/triss_nailed_it?igsh=MXg3NWwwbDFqaHB2YQ==', '_blank')}
             >
               <InstagramIcon className="mr-2 h-5 w-5" />
               View More on Instagram
