@@ -186,8 +186,7 @@ export default function Services() {
                   >
                     Book now
                   </Button>
-                    </Link>
-                  
+                    </Link>  
                 </div>
               </div>
             </motion.div>
