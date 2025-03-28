@@ -39,7 +39,7 @@ export default function Footer() {
               <h3 className="font-bold text-lg mb-3 text-white">Follow Us</h3>
               <div className="flex space-x-4">
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/triss_nailed_it?igsh=MXg3NWwwbDFqaHB2YQ==" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-2.5 rounded-full hover:bg-gray-700 transition-colors duration-300"
