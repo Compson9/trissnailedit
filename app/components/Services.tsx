@@ -4,6 +4,7 @@ import { InstagramIcon, PlayCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Services() {
   const [selectedVideo, setSelectedVideo] = useState<{
@@ -20,32 +21,32 @@ export default function Services() {
     {
       title: "Nails",
       description: "Professional nail care services including manicures, nail art, and extensions",
-      price: "Starting from $35",
-      image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?q=80&w=800&auto=format&fit=crop"
+      price: "Starting from ₵ 100",
+      image: "/nails.jpg"
     },
     {
       title: "Pedicure",
       description: "Luxurious pedicure treatments for ultimate foot care and relaxation",
-      price: "Starting from $45",
-      image: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop"
+      price: "Starting from  ₵ 100",
+      image: "/pedicure.jpg"
     },
     {
       title: "Mink Lash Extensions",
       description: "Premium mink lash extensions for a glamorous, natural look",
-      price: "Starting from $120",
-      image: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=800&auto=format&fit=crop"
+      price: "Starting from ₵ 100",
+      image: "/mint.jpg"
     },
     {
       title: "Ombré Brows",
       description: "Professional ombré brow treatment for perfect, natural-looking brows",
-      price: "Starting from $250",
-      image: "https://images.unsplash.com/photo-1594076482669-876a7ee8e1c0?q=80&w=800&auto=format&fit=crop"
+      price: "Starting from ₵ 100",
+      image: "/brows.jpg"
     },
     {
       title: "Piercing",
       description: "Safe and professional piercing services with premium jewelry options",
-      price: "Starting from $35",
-      image: "https://images.unsplash.com/photo-1595575593724-88f3b03b1dba?q=80&w=800&auto=format&fit=crop"
+      price: "Starting from ₵ 100",
+      image: "/piercing.jpg"
     }
   ];
 
@@ -174,12 +175,19 @@ export default function Services() {
               <div className="p-6">
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <div className="flex justify-end items-center">
-                  <Button
+                    <Link
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     href="https://www.picktime.com/009fd765-a783-4506-a80c-114fd53e8ebd"
+                    >
+                    <Button
                     variant="outline"
                     className="text-xs tracking-wider uppercase font-semibold border-gray-300 text-gray-800 hover:bg-gray-100"
                   >
                     Book now
                   </Button>
+                    </Link>
+                  
                 </div>
               </div>
             </motion.div>
