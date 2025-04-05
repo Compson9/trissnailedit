@@ -76,7 +76,7 @@ export default function HeroSection() {
         <Link
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.picktime.com/009fd765-a783-4506-a80c-114fd53e8ebd">
+          href="https://www.picktime.com/f7554bef-ccaf-4b75-a0c6-901b4ada98e9">
           <Button className="bg-white cursor-pointer text-black hover:bg-white/90 rounded-full px-8 py-6 text-lg group">
             Book Your Appointment
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

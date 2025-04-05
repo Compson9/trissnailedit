@@ -126,7 +126,7 @@ export default function Header() {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.picktime.com/009fd765-a783-4506-a80c-114fd53e8ebd">
+            href="https://www.picktime.com/f7554bef-ccaf-4b75-a0c6-901b4ada98e9">
             <Button
               className={cn(
                 "hidden md:inline-flex text-white bg-black font-medium rounded-3xl",
